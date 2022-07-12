@@ -3,4 +3,6 @@ import Product from "./Products";
 
 const router = new Router();
 
-router.use("/products", Product);
+router.use("/product", Product);
+
+export default router;
