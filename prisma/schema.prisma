@@ -17,7 +17,7 @@ model Product {
   price      Float
   color      String
   created_at DateTime?
-  img        Bytes?
+  img        String?
 
   @@map("Products")
 }

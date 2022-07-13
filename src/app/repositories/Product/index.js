@@ -2,10 +2,14 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 class ProductRepository {
-  async create(product) {
+  async create(product, file) {
+    // console.log(file);
+    const filePath = "localhost:3001/files/" + file.filename;
     return prisma.product.create({
       data: {
         ...product,
+        price: parseFloat(product.price),
+        img: filePath,
       },
     });
   }
@@ -22,8 +26,9 @@ class ProductRepository {
     });
   }
 
-  async updateById(id, product) {
+  async updateById(id, product, file) {
     const { brand, color, created_at, img, name, price } = product;
+    const filePath = "localhost:3001/files/" + file.filename;
 
     return prisma.product.update({
       where: {
@@ -33,7 +38,7 @@ class ProductRepository {
         brand,
         color,
         created_at,
-        img,
+        img: filePath,
         name,
         price,
       },

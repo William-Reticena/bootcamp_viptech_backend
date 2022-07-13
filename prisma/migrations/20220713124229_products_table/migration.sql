@@ -6,7 +6,7 @@ CREATE TABLE "Products" (
     "price" DOUBLE PRECISION NOT NULL,
     "color" TEXT NOT NULL,
     "created_at" TIMESTAMP(3),
-    "img" BYTEA,
+    "img" TEXT,
 
     CONSTRAINT "Products_pkey" PRIMARY KEY ("id")
 );

@@ -3,7 +3,7 @@ import ProductRepository from "../../repositories/Product";
 class ProductController {
   async store(req, res) {
     try {
-      const product = await ProductRepository.create(req.body);
+      const product = await ProductRepository.create(req.body, req.file);
 
       return res.status(200).json(product);
     } catch (error) {
@@ -50,7 +50,8 @@ class ProductController {
     try {
       const product = await ProductRepository.updateById(
         req.params.id,
-        req.body
+        req.body,
+        req.file
       );
 
       return res.status(200).json(product);
