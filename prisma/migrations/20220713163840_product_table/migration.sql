@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "Products" (
+CREATE TABLE "products" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "brand" TEXT NOT NULL,
@@ -8,5 +8,5 @@ CREATE TABLE "Products" (
     "created_at" TIMESTAMP(3),
     "img" TEXT,
 
-    CONSTRAINT "Products_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "products_pkey" PRIMARY KEY ("id")
 );

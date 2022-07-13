@@ -19,5 +19,5 @@ model Product {
   created_at DateTime?
   img        String?
 
-  @@map("Products")
+  @@map("products")
 }

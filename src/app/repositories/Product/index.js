@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 class ProductRepository {
   async create(product, file) {
     // console.log(file);
-    const filePath = "localhost:3001/files/" + file.filename;
+    const filePath = "http://localhost:3001/files/" + file.filename;
     return prisma.product.create({
       data: {
         ...product,
