@@ -53,7 +53,7 @@ class ProductController {
         req.body,
         req.file
       );
-      // console.log(req.body);
+
       return res.status(200).json(product);
     } catch (error) {
       console.log(error);

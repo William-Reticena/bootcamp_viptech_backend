@@ -3,13 +3,23 @@ const prisma = new PrismaClient();
 
 class ProductRepository {
   async create(product, file) {
-    // console.log(file);
-    const filePath = "http://localhost:3001/files/" + file.filename;
+    const { brand, color, created_at, name } = product;
+    let filePath;
+
+    if (file?.filename === undefined) {
+      filePath = "";
+    } else {
+      filePath = "http://localhost:3001/files/" + file.filename;
+    }
+
     return prisma.product.create({
       data: {
-        ...product,
-        price: parseFloat(product.price),
+        brand,
+        color,
+        created_at,
         img: filePath,
+        name,
+        price: parseFloat(product.price),
       },
     });
   }
