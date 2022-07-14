@@ -28,7 +28,17 @@ class ProductRepository {
 
   async updateById(id, product, file) {
     const { brand, color, created_at, img, name, price } = product;
-    const filePath = "localhost:3001/files/" + file.filename;
+
+    console.log(img);
+    let filePath;
+
+    if (file?.filename === undefined) {
+      filePath = img;
+    } else {
+      filePath = "http://localhost:3001/files/" + file.filename;
+    }
+
+    console.log(filePath);
 
     return prisma.product.update({
       where: {
@@ -40,7 +50,7 @@ class ProductRepository {
         created_at,
         img: filePath,
         name,
-        price,
+        price: parseFloat(price),
       },
     });
   }
